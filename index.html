@@ -41,8 +41,7 @@ body{
     color:white;
     letter-spacing:4px;
     text-shadow:
-        0 0 10px rgba(255,255,255,.7),
-        0 0 30px rgba(255,255,255,.4);
+    0 0 2px rgba(255,255,255,.2);
 }
 .buttons{
     display:flex;
@@ -111,6 +110,31 @@ body{
     to{
         transform:translateY(120vh) translateX(60px);
     }}
+#loader{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.4);
+    backdrop-filter:blur(5px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    opacity:0;
+    visibility:hidden;
+    transition:.3s;}
+#loader.show{
+    opacity:1;
+    visibility:visible;}
+#loader img{
+    width:130px;
+    height:130px;}
+#loader.spin img{
+    animation:spin 2s linear;}
+@keyframes spin{
+    from{
+        transform:rotate(0deg);}
+    to{
+        transform:rotate(1440deg);}}
 </style>
 </head>
 
@@ -123,7 +147,7 @@ body{
     <div class="content">
         <h1 class="logo">Cragee</h1>
         <div class="buttons">
-            <a href="intro.html" class="btn">Intro</a>
+            <a href="#" class="btn" id="introBtn">Intro</a>
             <a href="menu.html" class="btn">Menu</a>
         </div></div></div>
 
@@ -146,13 +170,28 @@ body{
     <div class="flake giant">❅</div>
     <div class="flake giant2">❅</div>
 </div>
-
-
-
-
-
+<div id="loader">
+    <img src="l.png" alt="">
+</div>
 </body>
 
+
+
+
+
+
+
+<script>
+const introBtn = document.getElementById("introBtn");
+const loader = document.getElementById("loader");
+introBtn.addEventListener("click", function(e){
+    e.preventDefault();
+    loader.classList.add("show");
+    loader.classList.add("spin");
+    setTimeout(() => {
+        window.location.href = "intro.html";
+    }, 2000);});
+</script>
 
 
 

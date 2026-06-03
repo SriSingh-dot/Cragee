@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Introduction - Cragee</title>
+
+
+
+
+<style>
+@font-face{
+    font-family:'Aesthetic';
+    src:url('Aesthetic-Regular.otf');}
+*{margin:0;
+  padding:0;
+  box-sizing:border-box;}
+body{
+    min-height:100vh;
+    background:url('s2.jpg') center center/cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    overflow:hidden;}
+body::before{
+    content:"";
+    position:fixed;
+    top:18px;
+    left:18px;
+    right:18px;
+    bottom:18px;
+    border:2px solid rgba(255,255,255,0.8);
+    pointer-events:none;}
+body::after{
+    content:"";
+    position:fixed;
+    top:30px;
+    left:30px;
+    right:30px;
+    bottom:30px;
+    border:1px solid rgba(255,255,255,0.6);
+    pointer-events:none;
+}
+.container{
+    width:min(900px,90%);
+    text-align:center;
+}
+.heading{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
+    margin-bottom:40px;}
+.heading img{
+    width:85px;
+    height:auto;}
+.heading h1{
+    font-family:'Aesthetic',serif;
+    color:white;
+    font-size:clamp(50px,7vw,100px);
+    font-weight:normal;
+    text-shadow:
+        0 0 5px rgba(255,255,255,0.2),
+        0 0 10px rgba(255,255,255,0.15);}
+.intro-box{
+    background:rgba(235,245,255,0.55);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.6);
+    border-radius:35px;
+    padding:45px;
+    box-shadow:
+        0 10px 40px rgba(0,0,0,0.15),
+        inset 0 0 15px rgba(255,255,255,0.4);}
+.intro-box p{
+    color:#324a63;
+    font-size:20px;
+    line-height:1.9;
+    font-family:Georgia, serif;
+}
+.corner{
+    position:absolute;
+    width:120px;
+    opacity:.5;
+    pointer-events:none;}
+.corner1{
+    top:60px;
+    left:60px;}
+.corner2{
+    bottom:60px;
+    right:60px;
+    transform:rotate(180deg);}
+@media(max-width:700px){
+    .heading{
+        gap:10px;}
+    .heading img{
+        width:55px;}
+    .intro-box{
+        padding:30px;}
+    .intro-box p{
+        font-size:17px;
+    }}
+</style>
+</head>
+
+
+
+
+
+
+<body>
+<div class="container">
+    <div class="heading">
+        <img src="c1.png" alt="">
+        <h1>Introduction</h1>
+        <img src="c2.png" alt=""></div>
+    <div class="intro-box">
+        <p>Hello guys and welcome to my small comfort zome! 💙 <br>
+<!--cutteeeee babeeesaayyyy-->
+            I am known as Sri and this is my personal website. I really appreciate you taking the time 
+            to visit and check out my cool site.  
+            Here you'll find all different types of things that i like and enjoy. You can check out books, movies, music and much more! 
+        </p></div></div>
+
+
+
+
+        
+</body>
+</html>

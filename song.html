@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Song Preferences - Cragee</title>
+
+
+
+
+
+
+<style>
+@font-face{
+    font-family:'Aesthetic';
+    src:url('Aesthetic-Regular.otf');}
+*{  margin:0;
+    padding:0;
+    box-sizing:border-box;}
+html{
+    scroll-behavior:smooth;}
+body{
+    min-height:100vh;
+    background:url('s2.jpg') center center/cover fixed no-repeat;
+    overflow-y:auto;
+    overflow-x:hidden;
+    position:relative;
+    padding-bottom:220px;}
+body::before{
+    content:"";
+    position:fixed;
+    top:18px;
+    left:18px;
+    right:18px;
+    bottom:18px;
+    border-left:2px solid rgba(255,255,255,.85);
+    border-right:2px solid rgba(255,255,255,.85);
+    border-bottom:2px solid rgba(255,255,255,.85);
+    pointer-events:none;
+    z-index:999;}
+body::after{
+    content:"";
+    position:fixed;
+    top:30px;
+    left:30px;
+    right:30px;
+    bottom:30px;
+    border-left:1px solid rgba(255,255,255,.65);
+    border-right:1px solid rgba(255,255,255,.65);
+    border-bottom:1px solid rgba(255,255,255,.65);
+    pointer-events:none;
+    z-index:999;}
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:70px auto;
+    text-align:center;}
+h1{
+    font-family:'Aesthetic';
+    font-weight:normal;
+    color:white;
+    font-size:clamp(55px,7vw,90px);
+    margin-bottom:45px;
+    text-shadow:
+    0 0 4px rgba(255,255,255,.18),
+    0 0 8px rgba(255,255,255,.12);
+  }
+.song-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+.song-card{
+    background:rgba(235,245,255,.35);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.4);
+    border-radius:30px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:.35s;
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.12);}
+.song-card:hover{
+    transform:translateY(-8px) scale(1.02);}
+.song-card img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+    display:block;
+    border-bottom:4px solid #35506f;
+}
+.song-details{
+    background:rgba(53,80,111,.92);
+    padding:16px;}
+.song-name{
+    font-family:'Aesthetic';
+    color:white;
+    font-size:28px;
+    font-weight:normal;
+    margin-bottom:5px;
+    text-shadow:
+    0 0 6px rgba(255,255,255,.15);}
+.artist{
+    color:rgba(255,255,255,.85);
+    font-size:15px;
+    letter-spacing:.5px;
+}
+.player{
+    position:fixed;
+    right:55px;
+    bottom:55px;
+    width:360px;
+    background:rgba(53,80,111,.96);
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:30px;
+    padding:15px;
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.25);
+    z-index:100;}
+.player-top{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:12px;
+</style>
+</head>
+
+
+
+
+
+
+
+
+
+<body>
+<div class="container">
+    <h1>Song Preferences</h1>
+    <div class="song-grid">
+        <div class="song-card"
+        onclick="changeSong('Royalty','Neoni','https://open.spotify.com/embed/track/7F2HkBsshPlY2jDFbHpUvQ')">
+            <img src="song1.jpg">
+            <div class="song-details">
+                <div class="song-name">Royalty</div>
+                <div class="artist">Neoni</div></div></div>
+        <div class="song-card"
+        onclick="changeSong('Legends Never Die','League of Legends','https://open.spotify.com/embed/track/4LhgwcTWwJQc6DFTkLXVEc')">
+            <img src="song2.jpg">
+            <div class="song-details">
+                <div class="song-name">Legends Never Die</div>
+                <div class="artist">League of Legends</div></div></div>
+        <div class="song-card"
+        onclick="changeSong('Love Wins All','IU','https://open.spotify.com/embed/track/0djkJ3iAARXRCbfbwwVc3o')">
+            <img src="song3.jpg">
+            <div class="song-details">
+                <div class="song-name">Love Wins All</div>
+                <div class="artist">IU</div></div></div>
+        <div class="song-card"
+        onclick="changeSong('Hooligan','BTS','https://open.spotify.com/embed/track/20dAJsyno9ZoBLJtqgQnUI')">
+            <img src="song4.jpg">
+            <div class="song-details">
+                <div class="song-name">Hooligan</div>
+                <div class="artist">BTS</div>
+            </div></div>
+        <div class="song-card"
+        onclick="changeSong('Set Fire To The Rain','Adele','https://open.spotify.com/embed/track/3di5hcvxxciiqwMH1jarhY')">
+            <img src="song5.jpg">
+            <div class="song-details">
+                <div class="song-name">Set Fire To The Rain</div>
+                <div class="artist">Adele</div>
+            </div></div>
+        <div class="song-card"
+        onclick="changeSong('Shameless','Camila Cabello','https://open.spotify.com/embed/track/2ogKhhoMClkFXek7ZgxAhN')">
+            <img src="song6.jpg">
+            <div class="song-details">
+                <div class="song-name">Shameless</div>
+                <div class="artist">Camila Cabello</div>
+            </div></div></div></div>
+
+
+
+
+
+
+<div class="player">
+    <div class="player-top">
+        <img src="disc.png" class="disc">
+        <div class="song-info">
+            <h3 id="currentSong">Royalty</h3>
+            <p id="currentArtist">Neoni</p></div></div>
+    <iframe
+        id="spotifyPlayer"
+        src="https://open.spotify.com/embed/track/7F2HkBsshPlY2jDFbHpUvQ"
+        width="100%"
+        height="152"
+        frameborder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+      <script>
+function changeSong(title,artist,link){
+    document.getElementById("currentSong").textContent = title;
+    document.getElementById("currentArtist").textContent = artist;
+    document.getElementById("spotifyPlayer").src = link;}
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+

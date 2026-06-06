@@ -22,12 +22,80 @@ body{
     justify-content:center;
     align-items:center;
     position:relative;}
-
-
-
-
-
-
+body::before{
+    content:"";
+    position:fixed;
+    top:18px;
+    left:18px;
+    right:18px;
+    bottom:18px;
+    border-left:2px solid rgba(255,255,255,0.8);
+    border-right:2px solid rgba(255,255,255,0.8);
+    border-bottom:2px solid rgba(255,255,255,0.8);
+    pointer-events:none;}
+body::after{
+    content:"";
+    position:fixed;
+    top:30px;
+    left:30px;
+    right:30px;
+    bottom:30px;
+    border-left:1px solid rgba(255,255,255,0.6);
+    border-right:1px solid rgba(255,255,255,0.6);
+    border-bottom:1px solid rgba(255,255,255,0.6);
+    pointer-events:none;
+}
+.container{
+    width:95%;
+    max-width:1500px;
+    text-align:center;}
+h1{
+    font-family:'Aesthetic', serif;
+    font-weight:normal;
+    color:white;
+    font-size:clamp(50px,6vw,80px);
+    margin-bottom:35px;
+    text-shadow:
+        0 0 4px rgba(255,255,255,0.18),
+        0 0 8px rgba(255,255,255,0.12);
+}
+.showcase-box{
+    width:92%;      
+    max-width:1350px;
+    margin:0 auto;
+    background:rgba(235,245,255,0.45);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.5);
+    border-radius:40px;
+    padding:40px 18px;
+    box-shadow:
+        0 10px 40px rgba(0,0,0,0.12),
+        inset 0 0 15px rgba(255,255,255,0.35);
+    position:relative;
+    overflow:hidden;}
+.nav{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:75px;
+    cursor:pointer;
+    transition:.3s;
+    z-index:20;
+    user-select:none;}
+.nav:hover{
+    transform:translateY(-50%) scale(1.12);}
+.prev{
+    left:20px;}
+.next{
+    right:20px;}
+.showcase{
+    position:relative;
+    height:290px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
 .card{
     position:absolute;
     transition:
@@ -89,16 +157,16 @@ body{
 
 <script>
 const dramas = [
-    {img:"d1.jpg", name:""},
-    {img:"d2.jpg", name:""},
-    {img:"d3.jpg", name:""},
-    {img:"d4.jpg", name:""},
-    {img:"d5.jpg", name:""},
-    {img:"d6.jpg", name:""},
-    {img:"d7.jpg", name:""},
-    {img:"d8.jpg", name:""},
-    {img:"d9.jpg", name:""},
-    {img:"d10.jpg", name:""}];
+    {img:"d1.jpg", name:"A Dream Within A Dream"},
+    {img:"d2.jpg", name:"The Prisoner of Beauty"},
+    {img:"d3.jpg", name:"The Glory (Chinese)"},
+    {img:"d4.jpg", name:"My Royal Nemesis"},
+    {img:"d5.jpg", name:"General's Lady"},
+    {img:"d6.jpg", name:"The Glory"},
+    {img:"d7.jpg", name:"Business Proposal"},
+    {img:"d8.jpg", name:"It's Okay To Not Be Okay"},
+    {img:"d9.jpg", name:"Marry My Husband"},
+    {img:"d10.jpg", name:"Lovely Runner"}];
 const showcase = document.getElementById("showcase");
 const title = document.getElementById("title");
 let current = 4;
@@ -138,14 +206,14 @@ function updateShowcase(){
             scale = .38;
             opacity = .2;
             blur = 3;}
-        const x = offset * 170;
+        const x = offset * 140;
         card.style.zIndex = z;
         card.style.transform =
         `translateX(${x}px) scale(${scale})`;
         card.style.opacity = opacity;
         card.style.filter = `blur(${blur}px)`;
-        card.style.width = "220px";
-        card.style.height = "310px";});
+        card.style.width = "200px";
+        card.style.height = "280px";});
     title.textContent = dramas[current].name;
 }document.getElementById("next").onclick = () => {
     current++;

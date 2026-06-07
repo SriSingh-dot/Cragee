@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Overview - Cragee</title>
+
+
+
+
+
+
+
+    <style>
+        @font-face {
+            font-family: 'Aesthetic';
+            src: url('Aesthetic-Regular.otf');}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;}
+        body {
+            min-height: 100vh;
+            background: url('s2.jpg') center center/cover no-repeat fixed;
+            font-family: 'Aesthetic', Georgia, serif; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 40px 20px;}
+        body::before {
+            content: "";
+            position: fixed;
+            top: 18px;
+            left: 18px;
+            right: 18px;
+            bottom: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            pointer-events: none;
+            z-index: 10;}
+        body::after {
+            content: "";
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            right: 30px;
+            bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            pointer-events: none;
+            z-index: 10;}
+        .container {
+            width: min(850px, 95%);
+            text-align: center;
+            z-index: 5;
+        }
+        .heading h1 {
+            color: white;
+            font-size: 75px;
+            font-weight: normal;
+            text-shadow: 0 0 10px rgba(255,255,255,0.2);
+            margin-bottom: 25px;
+        }
+
+
+
+
+
+
+      
+        .intro-box {
+            background: rgba(235, 245, 255, 0.55);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 35px;
+            padding: 50px 45px;
+            box-shadow:
+                0 10px 40px rgba(0, 0, 0, 0.15),
+                inset 0 0 15px rgba(255, 255, 255, 0.4);
+            text-align: left;}
+        .intro-box h2 {
+            color: #324a63;
+            font-size: 2.8rem;
+            font-weight: normal;
+            margin-bottom: 5px;
+            text-align: center;}
+        .intro-box .rating {
+            color: #5c7a99;
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            text-align: center;}
+        .summary-content p {
+            color: #324a63;
+            font-size: 19px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            letter-spacing: 0.3px;}
+        .btn-wrapper {
+            text-align: center;
+            margin-top: 20px;}
+        .back-btn {
+            display: inline-block;
+            text-decoration: none;
+            color: #324a63;
+            border: 1px solid #324a63;
+            padding: 12px 30px;
+            border-radius: 20px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.2);}
+        .back-btn:hover {
+            background: #324a63;
+            color: white;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+
+<div class="container">
+    <div class="heading">
+        <h1>Book Overview</h1></div>
+        <div class="intro-box">
+        <h2 id="book-title">Loading book .......</h2>
+        <div class="rating" id="book-rating"></div>
+        <div class="summary-content" id="book-description">
+            <p>Loading summary guysssss.......</p>
+        </div>
+        <div class="btn-wrapper">
+            <a href="books.html" class="back-btn">← Return to Book Preferences</a>
+        </div></div></div>
+
+
+
+
+
+
+
+
+<script>
+    const bookData = {
+        "pride": {
+            title: "Pride and Prejudice",
+            rating: "4.8/5",
+            desc: `<p></p>`},
+        "viscount": {
+            title: "The Viscount Who Loved Me",
+            rating: " 4.6/5",
+            desc: `<p></p>`},
+        "numbers": {
+            title: "A Mind for Numbers",
+            rating: " 4.9/5",
+            desc: `<p></p>`},
+        "friends": {
+            title: "How to Make Friends",
+            rating: " 4.7/5",
+            desc: `<p></p>`},
+        "worstbestman": {
+            title: "The Worst Best Man",
+            rating: " 4.5/5",
+            desc: `<p></p>`},
+        "divinerivals": {
+            title: "Divine Rivals",
+            rating: " 4.9/5",
+            desc: `<p></p>`}};
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedBookKey = urlParams.get('book');
+    if (selectedBookKey && bookData[selectedBookKey]) {
+        document.getElementById("book-title").innerText = bookData[selectedBookKey].title;
+        document.getElementById("book-rating").innerText = bookData[selectedBookKey].rating;
+        document.getElementById("book-description").innerHTML = bookData[selectedBookKey].desc;
+       } else {
+        document.getElementById("book-title").innerText = "No Book Selected";
+        document.getElementById("book-rating").innerText = "";
+        document.getElementById("book-description").innerHTML = "<p style='text-align:center;'>Please return to your book shelf to pick a preference option.</p>";}
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

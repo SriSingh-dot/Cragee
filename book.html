@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Preferences - Cragee</title>
+
+
+
+
+
+    
+    <style>
+        @font-face {
+            font-family: 'Aesthetic';
+            src: url('Aesthetic-Regular.otf');}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+
+
+
+        body {
+            min-height: 100vh;
+            background: url('s2.jpg') center center/cover no-repeat fixed;
+            font-family: 'Aesthetic', Georgia, serif; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 80px 20px;
+            position: relative;}
+        body::before {
+            content: "";
+            position: fixed;
+            top: 18px;
+            left: 18px;
+            right: 18px;
+            bottom: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            pointer-events: none;
+            z-index: 10;}
+        body::after {
+            content: "";
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            right: 30px;
+            bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            pointer-events: none;
+            z-index: 10;}
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            z-index: 5;}
+        header h1 {
+            color: white;
+            font-size: 80px;
+            font-weight: normal;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            margin-bottom: 10px;}
+        header p {
+            color: #f0f0f0;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+
+
+
+
+        .book-grid {
+            width: 100%;
+            max-width: 1000px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+            justify-content: center;
+            z-index: 5;}
+        .book-card {
+            background: rgba(235, 245, 255, 0.55);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 25px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;}
+        .book-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);}
+        .book-card img {
+            width: 100%;
+            height: 290px; 
+            object-fit: cover;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);}
+        .book-info {
+            padding: 20px;
+            text-align: center;
+            margin-top: auto;}
+        .book-info h3 {
+            color: #324a63; 
+            font-size: 1.4rem;
+            font-weight: normal;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;}
+        .rating {
+            color: #5c7a99;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+
+
+
+
+
+
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(50, 74, 99, 0.4);
+            backdrop-filter: blur(8px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            z-index: 2000;}
+        .modal-content {
+            max-width: 600px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 35px;
+            padding: 40px;
+            color: #324a63;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            text-align: center;}
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #324a63;}
+        .modal-content h2 {
+            margin-bottom: 15px;
+            font-size: 2.4rem;
+            font-weight: normal;}
+        .modal-content p {
+            line-height: 1.6;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+
+
+
+
+
+
+
+
+<body>
+<header>
+    <h1>Book Preferences</h1>
+    <p>Books that left a mark on me.</p>
+</header>
+<div class="book-grid">
+    <div class="book-card" onclick="openModal('Pride and Prejudice', '⭐ 4.8/5', 'A timeless romance full of wit, misunderstandings, personal growth, and one of literature’s most beloved couples.')">
+        <img src="pride.jpg" alt="Pride and prejudice">
+        <div class="book-info">
+            <h3>Pride and Prejudice</h3>
+            <div class="rating">⭐ 4.8</div></div></div>
+    <div class="book-card" onclick="openModal('The Viscount Who Loved Me', '⭐ 4.6/5', 'Sharp banter, slow-burn chemistry, and a rivalry that gradually becomes something deeper.')">
+        <img src="viscount.jpg" alt="The viscount who loved me">
+        <div class="book-info">
+            <h3>The Viscount Who Loved Me</h3>
+            <div class="rating">⭐ 4.6</div></div></div>
+    <div class="book-card" onclick="openModal('A Mind for Numbers', '⭐ 4.9/5', 'A practical guide to learning efficiently, overcoming procrastination, and mastering difficult subjects.')">
+        <img src="mindfornumbers.jpg" alt="A mind for numbers">
+        <div class="book-info">
+            <h3>A Mind for Numbers</h3>
+            <div class="rating">⭐ 4.9</div></div></div>
+     <div class="book-card" onclick="openModal('How to Make Friends', '⭐ 4.7/5', 'A classic self-development book about communication, connection, and building meaningful relationships.')">
+        <img src="friends.jpg" alt="How to make friends">
+        <div class="book-info">
+            <h3>How to Make Friends</h3>
+            <div class="rating">⭐ 4.7</div></div></div>
+    <div class="book-card" onclick="openModal('The Worst Best Man', '⭐ 4.5/5', 'Funny, romantic, and packed with tension between two people who would rather not like each other.')">
+        <img src="worstbestman.jpg" alt="The worst best man">
+        <div class="book-info">
+            <h3>The Worst Best Man</h3>
+            <div class="rating">⭐ 4.5</div></div></div>
+    <div class="book-card" onclick="openModal('Divine Rivals', '⭐ 4.9/5', 'A beautiful fantasy romance featuring magical letters, war, hope, and unforgettable characters.')">
+        <img src="divinerivals.jpg" alt="Divine rivals">
+        <div class="book-info">
+            <h3>Divine Rivals</h3>
+            <div class="rating">⭐ 4.9</div></div></div></div>
+
+
+
+
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">×</span>
+        <h2 id="title"></h2>
+        <p id="description"></p></div></div>
+
+
+
+
+
+
+
+
+<script>
+    const modal = document.getElementById("modal");
+    function openModal(title, rating, description) {
+        document.getElementById("title").innerHTML = 
+            `${title}<br><small style="color:#5c7a99; font-size: 1.1rem; font-family: 'Aesthetic';">${rating}</small>`;
+        document.getElementById("description").innerText = description;
+        modal.style.display = "flex";}
+    function closeModal() {
+        modal.style.display = "none";}
+    window.onclick = function(e) {
+        if (e.target == modal) {
+            closeModal();}}
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
